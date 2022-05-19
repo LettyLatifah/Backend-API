@@ -41,6 +41,10 @@ db.authenticate()
 // routes
 app.use('/api', require('./routes'));
 
+//add-new routes
+const router = require('./routes/router.js');
+app.use('/api', router);
+
 // 404 endpoint
 app.all('*', (req, res) => {
     res.status(404).json({ message: `${req.originalUrl} not found!` });
